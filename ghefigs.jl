@@ -1,3 +1,8 @@
+"""
+
+The GheThemes module contains two self-explanatory `Theme`s for `Makie.jl` plotting environments: `light_mode()` and `dark_mode()`.
+
+"""
 module GheThemes
 
     try import ColorSchemes catch
@@ -48,6 +53,12 @@ module GheThemes
     )
 end 
 
+
+"""
+
+The FigText module contains the functions that make adding text to tables and figures prettier, easier: `sub` (subscript), `sup` (superscript), `siground`
+
+"""
 module FigText
 
     """
