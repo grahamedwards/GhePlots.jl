@@ -1,62 +1,74 @@
+
+try import ColorSchemes catch
+    import Pkg; Pkg.add("ColorSchemes") 
+end
+
+try Theme() catch 
+        @warn "The `dark_mode` and `light_mode` themes are designed for Makie.jl environments. Please load a Makie environment for themes to work." 
+end
+
 """
 
-The GheThemes module contains two self-explanatory `Theme`s for `Makie.jl` plotting environments: `light_mode()` and `dark_mode()`.
+    dark_mode()
 
+Makie theme for dark backgrounds.
 """
-module GheThemes
+dark_mode() = Theme(
 
-    try import ColorSchemes catch
-        import Pkg; Pkg.add("ColorSchemes") 
-    end
+    fonts=(;regular="IBM Plex Sans Regular",bold="IBM Plex Sans Bold",italic="IBM Plex Sans Italic"),fontsize = 24,
 
-    try Theme() catch 
-         @warn "GheThemes are designed for Makie.jl environments. Please load a Makie environment for themes to work." 
-    end
-
-    dark_mode() = Theme(
+    backgroundcolor=:transparent, labelcolor=:white, palette = (; color = ColorSchemes.tol_bright),
     
-        fonts=(;regular="IBM Plex Sans Regular",bold="IBM Plex Sans Bold",italic="IBM Plex Sans Italic"),fontsize = 24,
 
-        backgroundcolor=:transparent, labelcolor=:white, palette = (; color = ColorSchemes.tol_bright),
+    Axis =(backgroundcolor=:transparent, 
+
+        spinewidth=2.,ytickwidth=2., xtickwidth=2.,
+        
+        bottomspinecolor=:white,topspinecolor=:white,leftspinecolor=:white,rightspinecolor=:white,
         
 
-        Axis =(backgroundcolor=:transparent, 
+        xgridcolor=(:white,.1),ygridcolor=(:white,0.1),
+        xgridvisible=false,ygridvisible=false,
 
-            spinewidth=2.,ytickwidth=2., xtickwidth=2.,
-            
-            bottomspinecolor=:white,topspinecolor=:white,leftspinecolor=:white,rightspinecolor=:white,
-            
+        xtickcolor=:white,ytickcolor=:white, 
+        yticklabelcolor=:white,xticklabelcolor=:white,
+        
+        xlabelcolor=:white,ylabelcolor=:white,titlecolor=:white),
 
-            xgridcolor=(:white,.1),ygridcolor=(:white,0.1),
+    Legend = (
+        labelcolor=:white,
+        bgcolor=:transparent,
+        framecolor=:white),
+        )
+
+"""
+
+    light_mode()
+
+Makie theme for white backgrounds.
+
+"""
+light_mode() = Theme(; 
+    palette = (
+        colormap=:tokyo, 
+        color = ColorSchemes.seaborn_deep6 ),
+    fonts=(;regular="IBM Plex Sans Regular", bold="IBM Plex Sans Bold", italic="IBM Plex Sans Italic",), fontsize = 18,
+    Axis=(  spinewidth=2.,ytickwidth=2., xtickwidth=2., backgroundcolor=:white,
+    
             xgridvisible=false,ygridvisible=false,
+            bottomspinecolor=:gray10,topspinecolor=:gray10,leftspinecolor=:gray10,rightspinecolor=:gray10,)     
+)
 
-            xtickcolor=:white,ytickcolor=:white, 
-            yticklabelcolor=:white,xticklabelcolor=:white,
-            
-            xlabelcolor=:white,ylabelcolor=:white,titlecolor=:white),
-
-        Legend = (
-            labelcolor=:white,
-            bgcolor=:transparent,
-            framecolor=:white),
-            )
-
-    light_mode() = Theme(; 
-        palette = (
-            colormap=:tokyo, 
-            color = ColorSchemes.seaborn_deep6 ),
-        fonts=(;regular="IBM Plex Sans Regular", bold="IBM Plex Sans Bold", italic="IBM Plex Sans Italic",), fontsize = 18,
-        Axis=(  spinewidth=2.,ytickwidth=2., xtickwidth=2., backgroundcolor=:white,
-        
-                xgridvisible=false,ygridvisible=false,
-                bottomspinecolor=:gray10,topspinecolor=:gray10,leftspinecolor=:gray10,rightspinecolor=:gray10,)     
-    )
-end 
 
 
 """
 
-The FigText module contains the functions that make adding text to tables and figures prettier, easier: `sub` (subscript), `sup` (superscript), `siground`
+The FigText module contains functions that make adding text to tables and figures prettier, easier: 
+- `FigText.sub` (subscript)
+- `FigText.sup` (superscript)
+- `FigText.siground`
+
+Use `help?` for more info.
 
 """
 module FigText
@@ -132,3 +144,4 @@ module FigText
     end
 
 end 
+
