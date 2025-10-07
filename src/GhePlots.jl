@@ -35,7 +35,7 @@ module GhePlots
 
         Legend = (
             labelcolor=:white,
-            bgcolor=:transparent,
+            backgroundcolor=:transparent,
             framecolor=:white),
             )
 
