@@ -13,7 +13,7 @@ module GhePlots
     """
     dark_mode() = Mke.Theme(
 
-        fonts=(;regular="IBM Plex Sans Regular",bold="IBM Plex Sans Bold",italic="IBM Plex Sans Italic"),fontsize = 14,
+        fonts=(;regular="IBM Plex Sans Regular",bold="IBM Plex Sans Bold",italic="IBM Plex Sans Italic"),fontsize = 14, 
 
         backgroundcolor=:transparent, labelcolor=:white, palette = (; color = ColorSchemes.tol_bright),
         
@@ -25,7 +25,7 @@ module GhePlots
             bottomspinecolor=:white,topspinecolor=:white,leftspinecolor=:white,rightspinecolor=:white,
             
 
-            xgridcolor=(:white,.1),ygridcolor=(:white,0.1),
+            xgridcolor=(:white,0.1),ygridcolor=(:white,0.1),
             xgridvisible=false,ygridvisible=false,
 
             xtickcolor=:white,ytickcolor=:white, 
