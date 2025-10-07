@@ -1,0 +1,19 @@
+name = "GhePlots"
+uuid = "bd9afc27-1bec-4b42-b94d-ed0a1e7db3db"
+authors = ["Graham Harper Edwards"]
+version = "1.0.0-DEV"
+
+[deps]
+ColorSchemes = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+
+[compat]
+ColorSchemes = "3.31.0"
+Makie = "0.24.6"
+julia = "1.11"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
